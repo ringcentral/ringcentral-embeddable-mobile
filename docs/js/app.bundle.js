@@ -175,10 +175,17 @@ async function waitUntilLoad() {
 
   return true;
 }
-function loadScript(url) {
+function loadScript(url, id) {
+  const dom = document.getElementById(id);
+
+  if (dom) {
+    return;
+  }
+
   const script = document.createElement('script');
   script.type = 'text/javascript';
   script.src = 'app.js';
+  script.id = id;
   script.async = false;
   document.body.appendChild(script);
 }

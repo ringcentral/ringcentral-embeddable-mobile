@@ -23,7 +23,7 @@ const data = {
   serviceName: SERVICE_NAME,
   defaultState,
   callbackUri,
-  appConfigQuery: `?appVersion=${pack.version}&userAgent=${SERVICE_NAME}_extension%2F${pack.version}&disableActiveCallControl=false&clientId=${RINGCENTRAL_CLIENT_ID}&clientSecret=${RINGCENTRAL_CLIENT_SECRET}&appServer=${encodeURIComponent(RINGCENTRAL_SERVER)}&redirectUri=${encodeURIComponent(RINGCENTRAL_APP_SERVER + '/rc-oauth')}&disableLoginPopup=1`
+  appConfigQuery: `?appVersion=${pack.version}&newAdapterUI=1&userAgent=${SERVICE_NAME}_extension%2F${pack.version}&disableActiveCallControl=false&appKey=${RINGCENTRAL_CLIENT_ID}&appSecret=${RINGCENTRAL_CLIENT_SECRET}&appServer=${encodeURIComponent(RINGCENTRAL_SERVER)}&redirectUri=${encodeURIComponent(RINGCENTRAL_APP_SERVER + '/rc-oauth')}&disableLoginPopup=1`
 }
 data._global = copy(data)
 

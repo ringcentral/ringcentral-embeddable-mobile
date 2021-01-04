@@ -23,7 +23,7 @@ const data = {
   cdn: RINGCENTRAL_APP_SERVER_GH,
   defaultState,
   callbackUri,
-  appConfigQuery: `?appVersion=${pack.version}&userAgent=${pack.name}_extension%2F${pack.version}&disableActiveCallControl=false&clientId=${RINGCENTRAL_CLIENT_ID}&clientSecret=${RINGCENTRAL_CLIENT_SECRET}&appServer=${encodeURIComponent(RINGCENTRAL_SERVER)}&redirectUri=${callbackUri}&disableLoginPopup=1`
+  appConfigQuery: `?appVersion=${pack.version}&newAdapterUI=1&userAgent=${pack.name}_extension%2F${pack.version}&disableActiveCallControl=false&appKey=${RINGCENTRAL_CLIENT_ID}&appSecret=${RINGCENTRAL_CLIENT_SECRET}&appServer=${encodeURIComponent(RINGCENTRAL_SERVER)}&redirectUri=${encodeURIComponent(callbackUri)}&disableLoginPopup=1`
 }
 
 function create (view) {

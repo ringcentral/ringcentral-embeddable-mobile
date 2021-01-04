@@ -215,7 +215,6 @@ $RECYCLE.BIN/
 
 /temp/
 /platforms/
-/deploy/embeddable/
 /config.xml
 /*.zip
 /package.json.*
