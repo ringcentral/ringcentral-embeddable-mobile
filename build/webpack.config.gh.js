@@ -36,7 +36,7 @@ const dict = {
   authorEmail: pack.author.email,
   authorName: pack.author.name,
   authorUrl: pack.author.url,
-  home
+  home: home + '/'
 }
 const config = {
   mode: 'production',
