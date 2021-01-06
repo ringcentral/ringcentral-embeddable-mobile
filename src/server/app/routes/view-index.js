@@ -6,7 +6,7 @@ import copy from 'json-deep-copy'
 import { pack, callbackUri, defaultState, authUrlDefaultRc } from '../common/constants'
 
 const {
-  RINGCENTRAL_APP_SERVER, CDN, SERVER_HOME, SERVICE_NAME,
+  RINGCENTRAL_APP_SERVER, CDN, SERVER_HOME,
   RINGCENTRAL_CLIENT_ID,
   RINGCENTRAL_CLIENT_SECRET,
   RINGCENTRAL_SERVER
@@ -20,10 +20,10 @@ const data = {
   home: SERVER_HOME,
   server: RINGCENTRAL_APP_SERVER,
   cdn: CDN || RINGCENTRAL_APP_SERVER,
-  serviceName: SERVICE_NAME,
+  serviceName: pack.name,
   defaultState,
   callbackUri,
-  appConfigQuery: `?appVersion=${pack.version}&newAdapterUI=1&userAgent=${SERVICE_NAME}_extension%2F${pack.version}&disableActiveCallControl=false&appKey=${RINGCENTRAL_CLIENT_ID}&appSecret=${RINGCENTRAL_CLIENT_SECRET}&appServer=${encodeURIComponent(RINGCENTRAL_SERVER)}&redirectUri=${encodeURIComponent(RINGCENTRAL_APP_SERVER + '/rc-oauth')}&disableLoginPopup=1`
+  appConfigQuery: `?appVersion=${pack.version}&newAdapterUI=1&userAgent=${pack.name}_extension%2F${pack.version}&disableActiveCallControl=false&appKey=${RINGCENTRAL_CLIENT_ID}&appSecret=${RINGCENTRAL_CLIENT_SECRET}&appServer=${encodeURIComponent(RINGCENTRAL_SERVER)}&redirectUri=${encodeURIComponent(RINGCENTRAL_APP_SERVER + '/rc-oauth')}&disableLoginPopup=1&enableWebRTCPlanB=1`
 }
 data._global = copy(data)
 

@@ -2,6 +2,9 @@
 export function checkPermission () {
   // First check whether we already have permission to access the microphone.
   cordova.plugins.iosrtc.registerGlobals()
+  Object.defineProperty(navigator, 'userAgent', {
+    get: function () { return 'Mozilla/5.0 (iPhone; CPU iPhone OS 14_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 Safari' }
+  })
   if (navigator.mediaDevices && navigator.mediaDevices.enumerateDevices) {
     navigator.mediaDevices.enumerateDevicesOriginal = navigator.mediaDevices.enumerateDevices
     navigator.mediaDevices.enumerateDevices = () => {

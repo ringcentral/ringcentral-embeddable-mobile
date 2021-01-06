@@ -207,9 +207,6 @@ class App extends external_React_namespaceObject.Component {
     defineProperty_default()(this, "isIOS", window.rc.isIOS);
 
     defineProperty_default()(this, "postMessage", data => {
-      console.log('====');
-      console.log(data);
-      console.log('====');
       document.getElementById('rc-widget-adapter-frame').contentWindow.postMessage(data, '*');
     });
 

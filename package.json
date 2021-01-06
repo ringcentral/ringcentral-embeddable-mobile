@@ -9,6 +9,8 @@
     "icon": "cordova-icon --config=config.xml --icon=src/app/icon.png",
     "splash": "cordova-splash --config=config.xml --splash=src/app/splash.png",
     "i": "cordova run ios",
+    "rebuild-i": "cordova platform remove ios && cordova platform add ios && npm run icon && npm run splash",
+    "rebuild-a": "cordova platform remove android && cordova platform add android && npm run icon && npm run splash",
     "a": "cordova run android",
     "proxy": "ngrok http 6066",
     "start": "node -r @babel/register -r dotenv/config ./src/server/run-server.js",
@@ -130,7 +132,8 @@
   "standard": {
     "parser": "babel-eslint",
     "globals": [
-      "cordova"
+      "cordova",
+      "HTMLMediaElement"
     ],
     "ignore": [
       "*-compiled.js",

@@ -129,6 +129,11 @@ function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { va
 function checkPermission() {
   // First check whether we already have permission to access the microphone.
   cordova.plugins.iosrtc.registerGlobals();
+  Object.defineProperty(navigator, 'userAgent', {
+    get: function () {
+      return 'Mozilla/5.0 (iPhone; CPU iPhone OS 14_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 Safari';
+    }
+  });
 
   if (navigator.mediaDevices && navigator.mediaDevices.enumerateDevices) {
     navigator.mediaDevices.enumerateDevicesOriginal = navigator.mediaDevices.enumerateDevices;
@@ -226,6 +231,16 @@ function handleEvent() {
 
   window.addEventListener('message', onEvent);
 }
+;// CONCATENATED MODULE: ./src/client/app/setsink.js
+/**
+ * since ios safari can not get audio output device by navigator.mediaDevices.enumerateDevices()
+ so audioElem.setSinkId would not work, let's disable setSinkId
+ */
+/* harmony default export */ const setsink = (() => {
+  HTMLMediaElement.prototype.setSinkId = function (id) {
+    console.log('running HTMLMediaElement.prototype.setSinkId, set to:', id);
+  };
+});
 ;// CONCATENATED MODULE: ./src/client/work.js
 /**
  * replace app default script
@@ -234,11 +249,13 @@ function handleEvent() {
 
 
 
+
 async function run() {
   await waitUntilLoad();
   checkPermission();
-  await loadScript('app.js', 'rc-app');
+  loadScript('app.js', 'rc-app');
   handleEvent();
+  setsink();
 }
 
 run();

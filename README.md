@@ -9,7 +9,7 @@
 ## todos
 
 - [x] Running in Android
-- [ ] Running in IOS
+- [x] Running in IOS
 - [ ] Use web worker
 - [x] Deploy to github pages
 
@@ -53,7 +53,7 @@ npm run prepare
 npm run a
 
 # run IOS app, make sure you have real IOS device and paid developer ID ready,
-# and open platforms/ios with xcode and config build an debug env
+# and open platforms/ios with xcode and config build an debug env, may need set workspace validate to yes
 npm run i
 ```
 
