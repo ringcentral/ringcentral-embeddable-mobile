@@ -4,6 +4,7 @@ import {
   login
 } from '../../app/event-handler'
 import { wait } from '../../app/common'
+import extra from '../../extra'
 
 export default class App extends Component {
   state = {
@@ -20,6 +21,7 @@ export default class App extends Component {
     if (!this.isIOS) {
       this.requirePermissions()
     }
+    extra()
   }
 
   postMessage = (data) => {
