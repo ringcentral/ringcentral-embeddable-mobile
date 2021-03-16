@@ -33,7 +33,7 @@ git clone git@github.com:ringcentral/ringcentral-embeddable-mobile.git
 cd ringcentral-embeddable-mobile
 
 # install dependencies
-npm i
+npm run pre && npm i
 
 # start proxy server
 npm run proxy
